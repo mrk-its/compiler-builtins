@@ -38,7 +38,9 @@ extern crate core;
 #[macro_use]
 mod macros;
 
+#[cfg(not(target_arch = "mos"))]
 pub mod float;
+#[cfg(not(target_arch = "mos"))]
 pub mod int;
 
 #[cfg(any(
