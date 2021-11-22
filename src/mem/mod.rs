@@ -21,6 +21,7 @@ mod impls;
 
 intrinsics! {
     #[mem_builtin]
+    #[cfg(not(target_arch = "mos"))]
     #[cfg_attr(not(all(target_os = "windows", target_env = "gnu")), linkage = "weak")]
     pub unsafe extern "C" fn memcpy(dest: *mut u8, src: *const u8, n: usize) -> *mut u8 {
         impls::copy_forward(dest, src, n);
@@ -28,6 +29,7 @@ intrinsics! {
     }
 
     #[mem_builtin]
+    #[cfg(not(target_arch = "mos"))]
     #[cfg_attr(not(all(target_os = "windows", target_env = "gnu")), linkage = "weak")]
     pub unsafe extern "C" fn memmove(dest: *mut u8, src: *const u8, n: usize) -> *mut u8 {
         let delta = (dest as usize).wrapping_sub(src as usize);
