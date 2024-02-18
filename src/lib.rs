@@ -42,6 +42,7 @@ mod macros;
 pub mod float;
 pub mod int;
 pub mod math;
+#[cfg(not(target_arch = "mos"))]
 pub mod mem;
 
 // `libm` expects its `support` module to be available in the crate root. This config can be
