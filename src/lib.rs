@@ -55,6 +55,7 @@ pub mod int;
     target_os = "windows"
 ))]
 pub mod math;
+#[cfg(not(target_arch = "mos"))]
 pub mod mem;
 
 #[cfg(target_arch = "arm")]
