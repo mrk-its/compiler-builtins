@@ -57,6 +57,7 @@ pub mod int;
         not(target_os = "uefi"),
     ),
     unix,
+    target_arch = "mos",
     all(target_family = "wasm", not(target_os = "unknown"))
 )))]
 pub mod math;
@@ -70,6 +71,7 @@ pub mod math;
         not(target_os = "uefi"),
     ),
     unix,
+    target_arch = "mos",
     all(target_family = "wasm", not(target_os = "unknown"))
 )))]
 use math::libm::support;
